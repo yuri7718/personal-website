@@ -1,0 +1,26 @@
+[
+  {
+    "slug": "from-graphs-to-words",
+    "title": "From Graphs to Words",
+    "description": "A Computer-Assisted Framework for the Production of Accessible Text Descriptions",
+    "tags": [],
+    "image": "",
+    "featured": true
+  },
+  {
+    "slug": "nulla-eu-blandit-urna",
+    "title": "Nulla eu blandit urna. Nullam nec facilisis sapien, ullamcorper vestibulum risus",
+    "description": "",
+    "tags": [],
+    "image": "",
+    "featured": true
+  },
+  {
+    "slug": "nam-imperdiet",
+    "title": "Nam imperdiet vel lorem tincidunt tincidunt",
+    "description": "",
+    "tags": [],
+    "image": "",
+    "featured": true
+  }
+]

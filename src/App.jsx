@@ -1,0 +1,26 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import HomePage from './pages/HomePage'
+import ProjectsPage from './pages/ProjectsPage'
+import GraphsToWordsPage from './pages/projects/GraphsToWordsPage'
+import ProjectPlaceholderPage from './pages/projects/ProjectPlaceholderPage'
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Navbar />
+
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/projects" element={<ProjectsPage />} />
+        <Route
+          path="/projects/from-graphs-to-words"
+          element={<GraphsToWordsPage />}
+        />
+        <Route path="/projects/:slug" element={<ProjectPlaceholderPage />} />
+      </Routes>
+    </BrowserRouter>
+  )
+}
+
+export default App

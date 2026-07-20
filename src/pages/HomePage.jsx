@@ -31,7 +31,7 @@ function ProjectsSection() {
   return (
     <section
       id="projects"
-      className="border-t border-[var(--site-border)] px-5 py-16 text-left md:min-h-[52svh] md:px-10 md:py-[88px]"
+      className="scroll-mt-24 border-t border-[var(--site-border)] px-5 py-16 text-left md:min-h-[52svh] md:px-10 md:py-[88px]"
     >
       <SectionHeader
         label="Projects"
@@ -62,7 +62,7 @@ function ContentSection({ id, label, title, description }) {
   return (
     <section
       id={id}
-      className="border-t border-[var(--site-border)] px-5 py-16 text-left md:min-h-[52svh] md:px-10 md:py-[88px]"
+      className="scroll-mt-24 border-t border-[var(--site-border)] px-5 py-16 text-left md:min-h-[52svh] md:px-10 md:py-[88px]"
     >
       <SectionHeader label={label} title={title} description={description} />
     </section>
@@ -73,7 +73,7 @@ function ContactSection() {
   return (
     <section
       id="contact"
-      className="border-t border-[var(--site-border)] px-5 py-16 text-left md:min-h-[52svh] md:px-10 md:py-[88px]"
+      className="scroll-mt-24 border-t border-[var(--site-border)] px-5 py-16 text-left md:min-h-[52svh] md:px-10 md:py-[88px]"
     >
       <SectionHeader
         label="Contact"
@@ -92,7 +92,7 @@ function HomePage() {
     <main className="flex flex-col">
       <section
         id="home"
-        className="grid grid-cols-1 items-center gap-10 px-5 py-12 text-left md:grid-cols-[minmax(0,1.15fr)_minmax(220px,0.85fr)] md:px-10 md:py-16"
+        className="grid scroll-mt-24 grid-cols-1 items-center gap-10 px-5 py-12 text-left md:grid-cols-[minmax(0,1.15fr)_minmax(220px,0.85fr)] md:px-10 md:py-16"
       >
         <div className="max-w-[690px]">
           <h1 className="my-5 text-4xl leading-tight font-medium text-[var(--site-heading)] md:my-8 md:text-6xl">

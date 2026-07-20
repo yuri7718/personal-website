@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Navbar from './components/Navbar'
+import ScrollToHash from './components/ScrollToHash'
 import HomePage from './pages/HomePage'
 import ProjectsPage from './pages/ProjectsPage'
 import ClayhouseGame from './pages/projects/ClayhouseGame'
@@ -10,6 +11,7 @@ import ProjectPlaceholderPage from './pages/projects/ProjectPlaceholderPage'
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToHash />
       <Navbar />
 
       <Routes>

@@ -10,7 +10,7 @@ import ProjectPlaceholderPage from './pages/projects/ProjectPlaceholderPage'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <ScrollToHash />
       <Navbar />
 

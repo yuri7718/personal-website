@@ -1,14 +1,33 @@
-import { Card } from '@heroui/react'
+import { Card, Chip } from '@heroui/react'
 import { Link } from 'react-router-dom'
 
+const projectImages = import.meta.glob('../assets/**/*.{gif,jpg,jpeg,png,webp}', {
+  eager: true,
+  query: '?url',
+  import: 'default',
+})
+
+function getProjectImage(image) {
+  if (!image) {
+    return ''
+  }
+
+  if (/^https?:\/\//.test(image) || image.startsWith('/')) {
+    return image
+  }
+
+  return projectImages[`../assets/${image}`] ?? ''
+}
+
 function ProjectCard({ project }) {
-  const { slug, title, description, tags = [], image } = project
+  const { slug, title, description, tags = [], image, period } = project
+  const imageSrc = getProjectImage(image)
   const cardContent = (
     <Card className="h-full overflow-hidden rounded-lg border border-[var(--site-border)] bg-[var(--surface)] transition duration-200 ease-out hover:-translate-y-1">
-      {image ? (
+      {imageSrc ? (
         <img
           className="aspect-[4/3] w-full object-cover"
-          src={image}
+          src={imageSrc}
           alt=""
         />
       ) : (
@@ -16,6 +35,11 @@ function ProjectCard({ project }) {
       )}
 
       <Card.Header className="px-5 pt-5 pb-2">
+        {period ? (
+          <p className="mb-2 text-xs font-semibold tracking-[0.08em] text-[var(--site-accent)] uppercase">
+            {period}
+          </p>
+        ) : null}
         <Card.Title className="text-lg leading-snug font-medium text-[var(--site-heading)]">
           {title}
         </Card.Title>
@@ -29,16 +53,18 @@ function ProjectCard({ project }) {
         ) : null}
 
         {tags.length > 0 ? (
-          <ul className="mt-5 flex flex-wrap gap-2">
+          <div className="mt-5 flex flex-wrap gap-2">
             {tags.map((tag) => (
-              <li
+              <Chip
                 key={tag}
-                className="rounded-full bg-[var(--site-accent-bg)] px-2.5 py-1 text-xs font-semibold text-[var(--site-heading)]"
+                className="bg-[var(--site-accent-bg)] text-[var(--site-heading)]"
+                size="sm"
+                variant="soft"
               >
                 {tag}
-              </li>
+              </Chip>
             ))}
-          </ul>
+          </div>
         ) : null}
       </Card.Content>
     </Card>

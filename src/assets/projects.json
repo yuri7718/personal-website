@@ -1,26 +1,32 @@
 [
   {
+    "slug": "daimon",
+    "title": "Daimon",
+    "description": "A web-based 3D reconstruction tool that lets users upload images or video and inspect the generated 3D result online",
+    "tags": ["3D Reconstruction", "3DGS", "Web Tool"],
+    "image": "Daimon/demo.png",
+    "period": "2026",
+    "featured": true,
+    "featuredOrder": 1
+  },
+  {
+    "slug": "clayhouse-game",
+    "title": "Clayhouse",
+    "description": "A 2D mobile game about making pottery through three mini games: shaping the clay, controlling the kiln temperature, and painting the final piece",
+    "tags": ["2D Mobile Game"],
+    "image": "ClayhouseGame/demo.png",
+    "period": "2025",
+    "featured": true,
+    "featuredOrder": 2
+  },
+  {
     "slug": "from-graphs-to-words",
     "title": "From Graphs to Words",
-    "description": "A Computer-Assisted Framework for the Production of Accessible Text Descriptions",
-    "tags": [],
-    "image": "",
-    "featured": true
-  },
-  {
-    "slug": "nulla-eu-blandit-urna",
-    "title": "Nulla eu blandit urna. Nullam nec facilisis sapien, ullamcorper vestibulum risus",
-    "description": "",
-    "tags": [],
-    "image": "",
-    "featured": true
-  },
-  {
-    "slug": "nam-imperdiet",
-    "title": "Nam imperdiet vel lorem tincidunt tincidunt",
-    "description": "",
-    "tags": [],
-    "image": "",
-    "featured": true
+    "description": "A computer-assisted framework for the production of accessible text descriptions",
+    "tags": ["Academic Publication", "Accessibility", "Visual Analytics"],
+    "image": "GraphsToWords/teaser.png",
+    "period": "2022-2024",
+    "featured": true,
+    "featuredOrder": 3
   }
 ]

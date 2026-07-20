@@ -11,16 +11,18 @@ const sections = [
     title: 'Visual Archive',
     description: 'Use this area for illustrations, sketches, generative pieces, and process notes.',
   },
-  {
-    id: 'contact',
-    label: 'Contact',
-    title: 'Get In Touch',
-    description: 'Share your email, social profiles, or a contact form here.',
-  },
 ]
 
+const emailUser = 'qiangxu1204'
+const emailDomain = 'gmail.com'
+
+const getFeaturedOrder = (project) => project.featuredOrder ?? Number.MAX_SAFE_INTEGER
+
 const featuredProjects = projects.some((project) => project.featured)
-  ? projects.filter((project) => project.featured).slice(0, 3)
+  ? projects
+      .filter((project) => project.featured)
+      .sort((a, b) => getFeaturedOrder(a) - getFeaturedOrder(b))
+      .slice(0, 3)
   : projects.slice(0, 3)
 
 function ProjectsSection() {
@@ -67,6 +69,24 @@ function ContentSection({ id, label, title, description }) {
   )
 }
 
+function ContactSection() {
+  return (
+    <section
+      id="contact"
+      className="border-t border-[var(--site-border)] px-5 py-16 text-left md:min-h-[52svh] md:px-10 md:py-[88px]"
+    >
+      <SectionHeader
+        label="Contact"
+        title="Get In Touch"
+        description="If you like my work or are interested in collaboration, feel free to reach out."
+      />
+      <p className="text-lg font-semibold text-[var(--site-heading)]">
+        {emailUser} [at] {emailDomain}
+      </p>
+    </section>
+  )
+}
+
 function HomePage() {
   return (
     <main className="flex flex-col">
@@ -89,6 +109,8 @@ function HomePage() {
       {sections.map((section) => (
         <ContentSection key={section.id} {...section} />
       ))}
+
+      <ContactSection />
     </main>
   )
 }

@@ -1,9 +1,12 @@
 import { Button } from "@heroui/react";
 import { useNavigate } from "react-router-dom";
+import AnimatedWebsite from "../components/AnimatedWebsite";
 import ArtworkGrid from "../components/ArtworkGrid";
 import ProjectCard from "../components/ProjectCard";
 import SectionHeader from "../components/SectionHeader";
+import artworks from "../assets/artworks";
 import projects from "../assets/projects.json";
+import { contentLayoutClass } from "../styles/layout";
 
 const emailUser = "qiangxu1204";
 const emailDomain = "gmail.com";
@@ -18,18 +21,28 @@ const featuredProjects = projects.some((project) => project.featured)
       .slice(0, 3)
   : projects.slice(0, 3);
 
+const featuredArtworks = artworks.slice(0, 8);
+
+function Section({ id, children }) {
+  return (
+    <section
+      id={id}
+      className={`scroll-mt-24 border-t border-[var(--site-border)] ${contentLayoutClass}`}
+    >
+      {children}
+    </section>
+  );
+}
+
 function ProjectsSection() {
   const navigate = useNavigate();
 
   return (
-    <section
-      id="projects"
-      className="scroll-mt-24 border-t border-[var(--site-border)] px-5 py-16 text-left md:min-h-[52svh] md:px-10 md:py-[88px]"
-    >
+    <Section id="projects">
       <SectionHeader
         label="Projects"
         title="Selected Work"
-        description="A few projects from research, software, and visual systems."
+        description="A few projects from research, software, and visual systems"
         action={
           <Button
             variant="secondary"
@@ -47,41 +60,51 @@ function ProjectsSection() {
           <ProjectCard key={project.slug} project={project} />
         ))}
       </div>
-    </section>
+    </Section>
   );
 }
 
-function ArtworksSection() {
+function ArtworkSection() {
+  const navigate = useNavigate();
+
   return (
-    <section
-      id="artworks"
-      className="scroll-mt-24 border-t border-[var(--site-border)] px-5 py-16 text-left md:min-h-[52svh] md:px-10 md:py-[88px]"
-    >
+    <Section id="artwork">
       <SectionHeader
-        label="Artworks"
+        label="Artwork"
         title="Visual Archive"
-        description="A collection of illustrations, sketches, and visual studies."
+        description="A collection of oil paintings, illustrations, and sketches"
+        action={
+          <Button
+            variant="secondary"
+            onPress={() => {
+              navigate("/artwork");
+            }}
+          >
+            View all artwork
+          </Button>
+        }
       />
-      <ArtworkGrid />
-    </section>
+      <ArtworkGrid artworks={featuredArtworks} />
+    </Section>
   );
 }
 
 function ContactSection() {
   return (
-    <section
-      id="contact"
-      className="scroll-mt-24 border-t border-[var(--site-border)] px-5 py-16 text-left md:min-h-[52svh] md:px-10 md:py-[88px]"
-    >
+    <Section id="contact">
       <SectionHeader
         label="Contact"
         title="Get In Touch"
-        description="If you like my work or are interested in collaboration, feel free to reach out."
+        description={
+          <>
+            If you like my work or are interested in collaborating, reach me at &nbsp;
+            <span className="whitespace-nowrap">
+              {emailUser} [at] {emailDomain}
+            </span>
+          </>
+        }
       />
-      <p className="text-lg font-semibold text-[var(--site-heading)]">
-        {emailUser} [at] {emailDomain}
-      </p>
-    </section>
+    </Section>
   );
 }
 
@@ -90,23 +113,16 @@ function HomePage() {
     <main className="flex flex-col">
       <section
         id="home"
-        className="grid scroll-mt-24 grid-cols-1 items-center gap-10 px-5 py-12 text-left md:grid-cols-[minmax(0,1.15fr)_minmax(220px,0.85fr)] md:px-10 md:py-16"
+        className="grid scroll-mt-24 grid-cols-1 items-center gap-10 px-5 py-8 text-left md:grid-cols-[minmax(0,1.15fr)_minmax(220px,0.85fr)] md:px-10"
       >
-        <div className="max-w-[690px]">
-          <h1 className="my-5 text-4xl leading-tight font-medium text-[var(--site-heading)] md:my-8 md:text-6xl">
-            Building digital things
-          </h1>
-          <p className="max-w-[640px] text-lg">
-            A personal website for selected projects, artwork, and ways to get
-            in touch.
-          </p>
+        <div className="max-w-[690px] flex flex-col gap-2">
+          <AnimatedWebsite />
+          <p>Selected projects, artwork, and a way to get in touch</p>
         </div>
       </section>
 
       <ProjectsSection />
-
-      <ArtworksSection />
-
+      <ArtworkSection />
       <ContactSection />
     </main>
   );

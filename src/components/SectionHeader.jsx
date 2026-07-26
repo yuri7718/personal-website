@@ -5,11 +5,11 @@ function SectionHeader({ label, title, description, action }) {
         <p className="mb-3.5 text-[13px] font-extrabold tracking-[0.08em] text-[var(--site-accent)] uppercase">
           {label}
         </p>
-        <h2 className="mb-2 text-2xl leading-[1.18] font-medium text-[var(--site-heading)] md:text-3xl">
+        <h2 className="mb-2 text-xl leading-[1.18] font-medium text-[var(--site-heading)] md:text-2xl">
           {title}
         </h2>
         {description ? (
-          <p className="max-w-[640px] text-lg">{description}</p>
+          <p className="max-w-[640px]">{description}</p>
         ) : null}
       </div>
 

@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ScrollToHash from "./components/ScrollToHash";
+import ArtworkPage from "./pages/ArtworkPage";
 import HomePage from "./pages/HomePage";
 import ProjectsPage from "./pages/ProjectsPage";
 import ClayhouseGame from "./pages/projects/ClayhouseGame";
@@ -16,6 +17,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/artwork" element={<ArtworkPage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/projects/daimon" element={<DaimonPage />} />
         <Route path="/projects/clayhouse-game" element={<ClayhouseGame />} />

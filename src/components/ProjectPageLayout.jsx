@@ -1,8 +1,8 @@
-import { Button } from '@heroui/react'
-import { useNavigate } from 'react-router-dom'
+import { Button } from "@heroui/react";
+import { useNavigate } from "react-router-dom";
 
 function ProjectPageLayout({ project, actions, children }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   if (!project) {
     return (
@@ -13,13 +13,13 @@ function ProjectPageLayout({ project, actions, children }) {
         <Button
           variant="secondary"
           onPress={() => {
-            navigate('/projects')
+            navigate("/projects");
           }}
         >
           Back to projects
         </Button>
       </main>
-    )
+    );
   }
 
   return (
@@ -28,7 +28,7 @@ function ProjectPageLayout({ project, actions, children }) {
         className="mb-10"
         variant="secondary"
         onPress={() => {
-          navigate('/projects')
+          navigate("/projects");
         }}
       >
         Back to projects
@@ -54,7 +54,7 @@ function ProjectPageLayout({ project, actions, children }) {
         {children}
       </article>
     </main>
-  )
+  );
 }
 
-export default ProjectPageLayout
+export default ProjectPageLayout;

@@ -1,32 +1,25 @@
-import { Button } from '@heroui/react'
-import { useNavigate } from 'react-router-dom'
-import ProjectCard from '../components/ProjectCard'
-import SectionHeader from '../components/SectionHeader'
-import projects from '../assets/projects.json'
+import { Button } from "@heroui/react";
+import { useNavigate } from "react-router-dom";
+import ArtworkGrid from "../components/ArtworkGrid";
+import ProjectCard from "../components/ProjectCard";
+import SectionHeader from "../components/SectionHeader";
+import projects from "../assets/projects.json";
 
-const sections = [
-  {
-    id: 'artworks',
-    label: 'Artworks',
-    title: 'Visual Archive',
-    description: 'Use this area for illustrations, sketches, generative pieces, and process notes.',
-  },
-]
+const emailUser = "qiangxu1204";
+const emailDomain = "gmail.com";
 
-const emailUser = 'qiangxu1204'
-const emailDomain = 'gmail.com'
-
-const getFeaturedOrder = (project) => project.featuredOrder ?? Number.MAX_SAFE_INTEGER
+const getFeaturedOrder = (project) =>
+  project.featuredOrder ?? Number.MAX_SAFE_INTEGER;
 
 const featuredProjects = projects.some((project) => project.featured)
   ? projects
       .filter((project) => project.featured)
       .sort((a, b) => getFeaturedOrder(a) - getFeaturedOrder(b))
       .slice(0, 3)
-  : projects.slice(0, 3)
+  : projects.slice(0, 3);
 
 function ProjectsSection() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <section
@@ -41,7 +34,7 @@ function ProjectsSection() {
           <Button
             variant="secondary"
             onPress={() => {
-              navigate('/projects')
+              navigate("/projects");
             }}
           >
             View all projects
@@ -55,18 +48,23 @@ function ProjectsSection() {
         ))}
       </div>
     </section>
-  )
+  );
 }
 
-function ContentSection({ id, label, title, description }) {
+function ArtworksSection() {
   return (
     <section
-      id={id}
+      id="artworks"
       className="scroll-mt-24 border-t border-[var(--site-border)] px-5 py-16 text-left md:min-h-[52svh] md:px-10 md:py-[88px]"
     >
-      <SectionHeader label={label} title={title} description={description} />
+      <SectionHeader
+        label="Artworks"
+        title="Visual Archive"
+        description="A collection of illustrations, sketches, and visual studies."
+      />
+      <ArtworkGrid />
     </section>
-  )
+  );
 }
 
 function ContactSection() {
@@ -84,7 +82,7 @@ function ContactSection() {
         {emailUser} [at] {emailDomain}
       </p>
     </section>
-  )
+  );
 }
 
 function HomePage() {
@@ -99,20 +97,19 @@ function HomePage() {
             Building digital things
           </h1>
           <p className="max-w-[640px] text-lg">
-            A personal website for selected projects, artwork, and ways to get in touch.
+            A personal website for selected projects, artwork, and ways to get
+            in touch.
           </p>
         </div>
       </section>
 
       <ProjectsSection />
 
-      {sections.map((section) => (
-        <ContentSection key={section.id} {...section} />
-      ))}
+      <ArtworksSection />
 
       <ContactSection />
     </main>
-  )
+  );
 }
 
-export default HomePage
+export default HomePage;

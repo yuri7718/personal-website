@@ -1,6 +1,6 @@
-import ProjectCard from '../components/ProjectCard'
-import SectionHeader from '../components/SectionHeader'
-import projects from '../assets/projects.json'
+import ProjectCard from "../components/ProjectCard";
+import SectionHeader from "../components/SectionHeader";
+import projects from "../assets/projects.json";
 
 function ProjectsPage() {
   return (
@@ -17,7 +17,7 @@ function ProjectsPage() {
         ))}
       </div>
     </main>
-  )
+  );
 }
 
-export default ProjectsPage
+export default ProjectsPage;

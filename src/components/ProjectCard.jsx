@@ -1,27 +1,30 @@
-import { Card, Chip } from '@heroui/react'
-import { Link } from 'react-router-dom'
+import { Card, Chip } from "@heroui/react";
+import { Link } from "react-router-dom";
 
-const projectImages = import.meta.glob('../assets/**/*.{gif,jpg,jpeg,png,webp}', {
-  eager: true,
-  query: '?url',
-  import: 'default',
-})
+const projectImages = import.meta.glob(
+  "../assets/**/*.{gif,jpg,jpeg,png,webp}",
+  {
+    eager: true,
+    query: "?url",
+    import: "default",
+  },
+);
 
 function getProjectImage(image) {
   if (!image) {
-    return ''
+    return "";
   }
 
-  if (/^https?:\/\//.test(image) || image.startsWith('/')) {
-    return image
+  if (/^https?:\/\//.test(image) || image.startsWith("/")) {
+    return image;
   }
 
-  return projectImages[`../assets/${image}`] ?? ''
+  return projectImages[`../assets/${image}`] ?? "";
 }
 
 function ProjectCard({ project }) {
-  const { slug, title, description, tags = [], image, period } = project
-  const imageSrc = getProjectImage(image)
+  const { slug, title, description, tags = [], image, period } = project;
+  const imageSrc = getProjectImage(image);
   const cardContent = (
     <Card className="h-full overflow-hidden rounded-lg border border-[var(--site-border)] bg-[var(--surface)] transition duration-200 ease-out hover:-translate-y-1">
       {imageSrc ? (
@@ -68,17 +71,17 @@ function ProjectCard({ project }) {
         ) : null}
       </Card.Content>
     </Card>
-  )
+  );
 
   if (!slug) {
-    return cardContent
+    return cardContent;
   }
 
   return (
     <Link className="block h-full no-underline" to={`/projects/${slug}`}>
       {cardContent}
     </Link>
-  )
+  );
 }
 
-export default ProjectCard
+export default ProjectCard;

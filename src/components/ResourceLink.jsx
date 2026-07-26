@@ -1,13 +1,13 @@
-import { Button, Link } from '@heroui/react'
+import { Button, Link } from "@heroui/react";
 
 function ResourceLink({ href, icon: Icon, children }) {
-  const isUnavailable = !href || href === '#'
+  const isUnavailable = !href || href === "#";
   const content = (
     <>
       {Icon ? <Icon size={16} strokeWidth={2} aria-hidden="true" /> : null}
       {children}
     </>
-  )
+  );
 
   if (isUnavailable) {
     return (
@@ -18,7 +18,7 @@ function ResourceLink({ href, icon: Icon, children }) {
       >
         {content}
       </Button>
-    )
+    );
   }
 
   return (
@@ -30,7 +30,7 @@ function ResourceLink({ href, icon: Icon, children }) {
     >
       {content}
     </Link>
-  )
+  );
 }
 
-export default ResourceLink
+export default ResourceLink;

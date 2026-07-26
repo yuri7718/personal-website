@@ -15,7 +15,7 @@ function SectionHeader({ label, title, description, action }) {
 
       {action ? <div className="shrink-0">{action}</div> : null}
     </div>
-  )
+  );
 }
 
-export default SectionHeader
+export default SectionHeader;

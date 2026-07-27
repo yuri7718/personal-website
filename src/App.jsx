@@ -7,7 +7,9 @@ import ProjectsPage from "./pages/ProjectsPage";
 import ClayhouseGame from "./pages/projects/ClayhouseGame";
 import DaimonPage from "./pages/projects/DaimonPage";
 import GraphsToWordsPage from "./pages/projects/GraphsToWordsPage";
+import HessaireStorefrontPage from "./pages/projects/HessaireStorefrontPage";
 import ProjectPlaceholderPage from "./pages/projects/ProjectPlaceholderPage";
+import ResearchSurveyPlatformPage from "./pages/projects/ResearchSurveyPlatformPage";
 
 function App() {
   return (
@@ -20,7 +22,15 @@ function App() {
         <Route path="/artwork" element={<ArtworkPage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/projects/daimon" element={<DaimonPage />} />
+        <Route
+          path="/projects/occlusion-type-classification"
+          element={<ResearchSurveyPlatformPage />}
+        />
         <Route path="/projects/clayhouse-game" element={<ClayhouseGame />} />
+        <Route
+          path="/projects/hessaire-storefront"
+          element={<HessaireStorefrontPage />}
+        />
         <Route
           path="/projects/from-graphs-to-words"
           element={<GraphsToWordsPage />}

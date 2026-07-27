@@ -18,8 +18,7 @@ const featuredProjects = projects.some((project) => project.featured)
   ? projects
       .filter((project) => project.featured)
       .sort((a, b) => getFeaturedOrder(a) - getFeaturedOrder(b))
-      .slice(0, 3)
-  : projects.slice(0, 3);
+  : projects;
 
 const featuredArtworks = artworks.slice(0, 8);
 

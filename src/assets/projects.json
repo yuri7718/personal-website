@@ -10,6 +10,16 @@
     "featuredOrder": 1
   },
   {
+    "slug": "occlusion-type-classification",
+    "title": "Computer Vision Labelling Platform",
+    "description": "A self-hosted Amazon Mechanical Turk platform for collecting computer vision labels, deployed with AWS EC2 and S3",
+    "tags": ["Computer Vision", "Data Labelling", "AWS"],
+    "image": "OcclusionTypeClassification/demo.png",
+    "period": "2026",
+    "featured": true,
+    "featuredOrder": 2
+  },
+  {
     "slug": "clayhouse-game",
     "title": "Clayhouse",
     "description": "A 2D mobile game about making pottery through three mini games: shaping the clay, controlling the kiln temperature, and painting the final piece",
@@ -17,7 +27,17 @@
     "image": "ClayhouseGame/demo.png",
     "period": "2025",
     "featured": true,
-    "featuredOrder": 2
+    "featuredOrder": 3
+  },
+  {
+    "slug": "hessaire-storefront",
+    "title": "Hessaire E-commerce Store",
+    "description": "An e-commerce storefront for Hessaire products built with BigCommerce Catalyst and Next.js",
+    "tags": ["E-commerce", "BigCommerce", "Next.js"],
+    "image": "HessaireStorefront/demo.png",
+    "period": "2025",
+    "featured": true,
+    "featuredOrder": 4
   },
   {
     "slug": "from-graphs-to-words",
@@ -27,6 +47,6 @@
     "image": "GraphsToWords/teaser.png",
     "period": "2022-2024",
     "featured": true,
-    "featuredOrder": 3
+    "featuredOrder": 5
   }
 ]
